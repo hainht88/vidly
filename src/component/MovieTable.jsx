@@ -10,9 +10,9 @@ class MovieTable extends Component {
     const { sortColumn } = this.props;
     if (column === sortColumn.path)
       return sortColumn.order === "asc" ? (
-        <i class="fa fa-sort-asc" />
+        <i className="fa fa-sort-asc" />
       ) : (
-        <i class="fa fa-sort-desc" />
+        <i className="fa fa-sort-desc" />
       );
   }
 
