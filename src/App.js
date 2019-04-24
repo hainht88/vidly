@@ -1,25 +1,24 @@
 import React, { Component, Fragment } from "react";
-import { Switch, Redirect, Route } from "react-router-dom";
-import NavBar from "./component/NavBar";
-import Movies from "./component/Movies";
-import NotFound from "./component/NotFound";
-import "font-awesome/css/font-awesome.css";
-import "bootstrap/dist/css/bootstrap.css";
+import { Route, Switch, Redirect } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Movies from "./components/Movies";
+import MovieForm from "./components/MovieForm";
+import NotFound from "./components/NotFound";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Fragment>
         <NavBar />
         <Switch>
-          <Route path="/movies" component={Movies} />
-          <Route path="/not-found" component={NotFound} />
-          <Redirect exact from="/" to="/movies" />
-          <Redirect to="not-found" />
+          <Route path="/Movies/:id" exact component={MovieForm} />
+          <Route path="/Movies" exact component={Movies} />
+          <Route path="/not-found" exact component={NotFound} />
+          <Redirect from="/" to="/movies" />
+          <Route path="/" exact component={Movies} />
+          <Redirect from="*" to="/not-found" />
         </Switch>
       </Fragment>
     );
   }
 }
-
-export default App;
